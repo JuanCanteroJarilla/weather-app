@@ -23,7 +23,7 @@ function ActualMeteoWithHourlyForecast() {
   return (
     <>
       <div className="mt-[54vh] ml-8 self-start z-20">
-        <p className="description">
+        <p className="description bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
           {weatherData?.current.weather[0].description
             ? capitalizeWords(weatherData.current.weather[0].description)
             : ""}
