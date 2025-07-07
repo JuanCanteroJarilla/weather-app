@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { useWeatherStore } from "../store";
-import { BsClouds, BsCloudRain } from "react-icons/bs";
+import {
+  BsClouds,
+  BsCloudRain,
+  BsCloudLightningRain,
+  BsCloudSnow,
+  BsSun,
+} from "react-icons/bs";
 
 function ActualMeteoWithHourlyForecast() {
   const { weatherData } = useWeatherStore();
@@ -9,12 +15,12 @@ function ActualMeteoWithHourlyForecast() {
     console.log("Weather Data:", weatherData);
   }, [weatherData]);
 
-  let weatherToVideo = {
-    Clear: null,
+  let weatherIcon = {
+    Clear: <BsSun size={32} color="white" />,
     Clouds: <BsClouds size={32} color="white" />,
     Rain: <BsCloudRain size={32} color="white" />,
-    Snow: null,
-    Thunderstorm: null,
+    Snow: <BsCloudSnow size={32} color="white" />,
+    Thunderstorm: <BsCloudLightningRain size={32} color="white" />,
   };
 
   const capitalizeWords = (str: string) =>
@@ -41,7 +47,7 @@ function ActualMeteoWithHourlyForecast() {
             </span>
             <hr className="relative w-8 border-white/15 border-t-2 my-1" />
             <div className="bg-white/15 w-[2.5vw] p-1 mt-2 rounded-lg flex flex-col items-center justify-center">
-              {weatherToVideo[hour.weather[0]?.main]}
+              {weatherIcon[hour.weather[0]?.main]}
             </div>
             <span className="p-1 temperaturaHourly font-semibold">
               {Math.round(hour.temp)}&deg;
