@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Ciudad";
+  src: url("/fonts/HeadingNowTrial-66Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Tiempo";
+  src: url("/fonts/HeadingNowTrial-55Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nexa-heavy";
+  src: url("/fonts/Nexa-Heavy.ttf") format("truetype");
+}
+
+// .video-background-container {
+//   position: relative;
+//   width: 100vw;
+//   height: 100vh;
+//   overflow: hidden;
+// }
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.contenido-superpuesto {
+  position: relative;
+  // z-index: 1;
+  /* Tus estilos para el contenido */
+}
+
+// .ciudad {
+//   font-family: 'Ciudad', sans-serif;
+//   font-size: 2rem;
+//   letter-spacing: 1px;
+//   // font-weight: bolder;
+//   color: #000;
+//   text-align: center;
+//   margin-top: 1rem;
+// }
+
+.temperatura {
+  font-family: "Temperatura", sans-serif;
+  font-size: 4rem;
+  color: #000;
+}
+
+.viento {
+  font-family: "Nexa-heavy", sans-serif;
+  font-size: 1rem;
+  color: #000;
+}
+
+.tiempo {
+  font-family: "Tiempo", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #000;
+  text-align: center;
+}
+
+.forecastTitle {
+  font-family: "Nexa-heavy", sans-serif;
+  font-size: 1rem;
+  color: #000;
+}
+
+.description,
+.currentDate {
+  font-family: "Temperatura", sans-serif;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.temperaturaHourly {
+  font-family: "Temperatura", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+}
