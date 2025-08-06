@@ -42,7 +42,7 @@ function ActualMeteoWithHourlyForecast() {
             key={idx}
             className="bg-white/5 w-[3.5vw] flex flex-col rounded-lg items-center"
           >
-            <span className="temperaturaHourly">
+            <span className="temperaturaHourly pt-2">
               {new Date(hour.dt * 1000).getHours()}:00
             </span>
             <hr className="relative w-8 border-white/15 border-t-2 my-1" />

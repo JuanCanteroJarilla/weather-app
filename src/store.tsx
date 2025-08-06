@@ -1,5 +1,5 @@
 import { create } from "zustand";
-
+import { devtools } from "zustand/middleware";
 interface WeatherState {
   city: string;
   weatherData: any;
@@ -9,11 +9,13 @@ interface WeatherState {
   setForecastData: (data: any) => void;
 }
 
-export const useWeatherStore = create<WeatherState>((set) => ({
-  city: "-",
-  weatherData: null,
-  forecastData: null,
-  setCity: (city) => set({ city }),
-  setWeatherData: (data) => set({ weatherData: data }),
-  setForecastData: (data) => set({ forecastData: data }),
-}));
+export const useWeatherStore = create<WeatherState>()(
+  devtools((set) => ({
+    city: "-",
+    weatherData: null,
+    forecastData: null,
+    setCity: (city) => set({ city }),
+    setWeatherData: (data) => set({ weatherData: data }),
+    setForecastData: (data) => set({ forecastData: data }),
+  }))
+);

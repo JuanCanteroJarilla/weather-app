@@ -26,19 +26,11 @@ const Weather = () => {
       Thunderstorm: "/assets/images/lluvioso.mp4",
     };
     let main = weatherData.current?.weather[0]?.main;
+
     setBackgroundVideo(weatherToVideo[main] || "/assets/images/default.mp4");
   }, [weatherData]);
   return (
     <div className="video-background-container">
-      {/* <div className="contenido-superpuesto flex flex-col justify-center items-center">
-        <div className="">
-        <input
-        type="text"
-        className="input-busqueda bg-white/40 backdrop-blur-md border border-white/20 rounded-lg px-4 h-10 mt-5 text-black placeholder-black/70 shadow-lg"
-        placeholder="Buscar ciudad..."
-        />
-        </div>
-        </div> */}
       <div className="flex flex-row h-screen w-screen">
         {backgroundVideo && (
           <video
