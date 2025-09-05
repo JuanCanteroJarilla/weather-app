@@ -7,9 +7,10 @@ import { FiWind } from "react-icons/fi";
 import GetDayTime from "../utils/datetime";
 import "./styles.scss";
 import LocationButton from "./LocationButton";
+import SelectorForecastDaysButton from "./SelectorForecastDaysButton";
 const GeneralInfo = () => {
   const { weatherData, setCity, setWeatherData } = useWeatherStore();
-  const [selectedPeriod, setSelectedPeriod] = useState("5");
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,11 +26,6 @@ const GeneralInfo = () => {
     };
     fetchData();
   }, []);
-
-  const handlePeriodSelect = (period) => {
-    setSelectedPeriod(period);
-    console.log(`${period} days selected`);
-  };
 
   return (
     <>
@@ -50,50 +46,12 @@ const GeneralInfo = () => {
           <hr className="my-6 border-t-2 border-white/20 w-full" />
         </div>
         <div className="flex flex-col items-center">
-          <p className="forecastTitle pb-4 text-white">The Next Days Forecast</p>
-          <div className="flex flex-row gap-4">
-            <button
-              type="button"
-              className={`px-4 py-2 rounded-lg transition-all duration-300 text-black font-medium backdrop-blur-sm ${
-                selectedPeriod === "5"
-                  ? "bg-black/20"
-                  : "hover:bg-black/10 active:bg-black/20"
-              }`}
-              onClick={() => handlePeriodSelect("5")}
-            >
-              5 days
-            </button>
-            <button
-              type="button"
-              className={`px-4 py-2 rounded-lg transition-all duration-300 text-black font-medium backdrop-blur-sm ${
-                selectedPeriod === "15"
-                  ? "bg-black/20"
-                  : "hover:bg-black/10 active:bg-black/20"
-              }`}
-              onClick={() => handlePeriodSelect("15")}
-            >
-              15 days
-            </button>
-            <button
-              type="button"
-              className={`px-4 py-2 rounded-lg transition-all duration-300 text-black font-medium backdrop-blur-sm ${
-                selectedPeriod === "30"
-                  ? "bg-black/20"
-                  : "hover:bg-black/10 active:bg-black/20"
-              }`}
-              onClick={() => handlePeriodSelect("30")}
-            >
-              30 days
-            </button>
-          </div>
+          <p className="forecastTitle pb-4 text-white">
+            The Next Days Forecast
+          </p>
+
+          <SelectorForecastDaysButton />
         </div>
-        {/* <div className="flex flex-col items-center">
-          <MdOutlineWbSunny size={64} />
-          <p className="tiempo">{weatherData?.weather[0].description}</p>
-        </div>
-        <div className="flex flex-row items-center gap-2">
-          <p></p>
-        </div> */}
       </div>
     </>
   );
