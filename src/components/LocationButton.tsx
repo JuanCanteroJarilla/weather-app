@@ -11,8 +11,9 @@ type Suggestion = {
   displayName: string;
 };
 
+const API_KEY = import.meta.env.VITE_OPENWEATHERMAP_API_KEY;
 function LocationButton() {
-  const { city, setCity, weatherData } = useWeatherStore();
+  const { city, setCity } = useWeatherStore();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -25,7 +26,6 @@ function LocationButton() {
     }
     setIsLoading(true);
     try {
-      const API_KEY = "32950239ec792cbebc53e2b678195efa";
       const response = await fetch(
         `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${API_KEY}`
       );
