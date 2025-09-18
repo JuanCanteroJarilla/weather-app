@@ -1,19 +1,19 @@
 import { useWeatherStore } from "../store";
 import GetDayTime from "../utils/datetime";
 
-function DayTime() {
+const DayTime = () => {
   const { weatherData } = useWeatherStore();
-  const day = weatherData?.current?.dt;
+  const timestamp = weatherData?.current?.dt;
 
-  const CurrentDate = GetDayTime(day);
+  if (!timestamp) return null;
+
+  const currentDate = GetDayTime(timestamp);
 
   return (
-    <>
-      <div className="currentDate">
-        <p>{CurrentDate}</p>
-      </div>
-    </>
+    <div className="currentDate">
+      <p>{currentDate}</p>
+    </div>
   );
-}
+};
 
 export default DayTime;
