@@ -6,11 +6,9 @@ import ActualMeteoWithHourlyForecast from "./ActualMeteoWithHourlyForecast";
 import DayTime from "./DayTime";
 import { useWeatherStore } from "../store";
 
-
-const Weather = () => {
+const Weather: React.FC = () => {
   const { weatherData } = useWeatherStore();
-  const [backgroundVideo, setBackgroundVideo] = useState(null);
- 
+  const [backgroundVideo, setBackgroundVideo] = useState<string | null>(null);
 
   useEffect(() => {
     GetGeolocation();
@@ -18,17 +16,17 @@ const Weather = () => {
 
   useEffect(() => {
     if (!weatherData) return;
-    let weatherToVideo = {
+    const weatherToVideo: Record<string, string> = {
       Clear: "/assets/images/soleado.mp4",
       Clouds: "/assets/images/nublado.mp4",
       Rain: "/assets/images/lluvioso.mp4",
       Snow: "/assets/images/nevado.mp4",
       Thunderstorm: "/assets/images/lluvioso.mp4",
     };
-    let main = weatherData.current?.weather[0]?.main;
-
+    const main = weatherData.current?.weather?.[0]?.main;
     setBackgroundVideo(weatherToVideo[main] || "/assets/images/default.mp4");
   }, [weatherData]);
+
   return (
     <div className="video-background-container">
       <div className="flex flex-row h-screen w-screen">
