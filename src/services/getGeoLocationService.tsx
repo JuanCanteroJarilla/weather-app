@@ -1,5 +1,9 @@
 const GetGeoLocationService = (): Promise<{ lat: number; lon: number }> => {
   return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject(new Error("La geolocalización no está soportada por este navegador."));
+      return;
+    }
     navigator.geolocation.getCurrentPosition(
       (position) => {
         resolve({
@@ -13,6 +17,5 @@ const GetGeoLocationService = (): Promise<{ lat: number; lon: number }> => {
     );
   });
 };
-
 
 export default GetGeoLocationService;
