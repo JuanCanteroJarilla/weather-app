@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="5.705">
+  <testsuite name="GetGeoLocationService" errors="0" failures="0" skipped="0" timestamp="2025-10-15T14:21:29" time="1.177" tests="5">
+    <testcase classname="GetGeoLocationService debería resolver con coordenadas cuando la geolocalización es exitosa" name="GetGeoLocationService debería resolver con coordenadas cuando la geolocalización es exitosa" time="0.003">
+    </testcase>
+    <testcase classname="GetGeoLocationService debería rechazar con error cuando la geolocalización falla" name="GetGeoLocationService debería rechazar con error cuando la geolocalización falla" time="0.01">
+    </testcase>
+    <testcase classname="GetGeoLocationService debería rechazar cuando geolocalización no está soportada" name="GetGeoLocationService debería rechazar cuando geolocalización no está soportada" time="0.003">
+    </testcase>
+    <testcase classname="GetGeoLocationService debería llamar getCurrentPosition con los callbacks correctos" name="GetGeoLocationService debería llamar getCurrentPosition con los callbacks correctos" time="0.001">
+    </testcase>
+    <testcase classname="GetGeoLocationService debería manejar coordenadas con decimales" name="GetGeoLocationService debería manejar coordenadas con decimales" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

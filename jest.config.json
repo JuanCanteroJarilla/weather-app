@@ -19,5 +19,9 @@
     "!src/**/*.d.ts",
     "!src/main.tsx",
     "!src/vite-env.d.ts"
-  ]
+  ],
+  "coverageDirectory": "coverage",
+  "coverageReporters": ["html", "lcov", "text"],
+  "reporters": ["default", "jest-junit"],
+  "testResultsProcessor": "jest-junit"
 }
