@@ -72,22 +72,28 @@ pipeline {
     post {
         always {
             dir('Frontend') {
-                // Solo mantener reporte de coverage HTML (opcional)
-                publishHTML([
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: false,
-                    keepAll: true,
-                    reportDir: 'coverage/lcov-report',
-                    reportFiles: 'index.html',
-                    reportName: 'Coverage Report'
-                ])
+                echo '📊 Coverage report generado en: coverage/index.html'
+                echo '📋 Para ver el reporte, descarga los artifacts o instala HTML Publisher plugin'
+                
+                // Archivar reporte de coverage como artifact
+                script {
+                    if (fileExists('coverage')) {
+                        archiveArtifacts artifacts: 'coverage/**/*', fingerprint: true, allowEmptyArchive: true
+                        echo '✅ Reportes de coverage archivados como artifacts'
+                    } else {
+                        echo '⚠️ No se encontraron reportes de coverage'
+                    }
+                }
             }
         }
         success {
-            echo 'Pipeline succeeded!'
+            echo '🎉 Pipeline succeeded!'
         }
         failure {
-            echo 'Pipeline failed!'
+            echo '❌ Pipeline failed!'
+        }
+        cleanup {
+            echo '🧹 Cleaning up workspace...'
         }
     }
 }
