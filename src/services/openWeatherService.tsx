@@ -1,8 +1,9 @@
 import axios from "axios";
 
+// No need to redeclare ImportMeta or ImportMetaEnv, Vite provides these types automatically.
+
 const API_KEY = import.meta.env.VITE_OPENWEATHERMAP_API_KEY;
 const BASE_URL = "https://api.openweathermap.org/data/3.0/onecall";
-
 
 
 export const getWeatherByCoordinates = async (
